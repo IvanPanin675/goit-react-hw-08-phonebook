@@ -47,6 +47,7 @@ const FormAddContact = () => {
         cleanValues(e);
       }}
     >
+      <h1>Phonebook</h1>
       <label htmlFor="">Name</label>
       <input
         onChange={onChanges}
