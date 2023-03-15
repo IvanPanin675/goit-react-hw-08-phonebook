@@ -1,11 +1,14 @@
+import { UserMenu } from 'components/UserMenu/UserMenu';
 import { NavLink } from 'react-router-dom';
+import css from "./navigation.module.css";
+
 
 export const Navigation = () => {
   return (
-    <div>
+    <div className={css.navi}>
       <NavLink to="/contacts">Contacts</NavLink>
       <nav>
-        <ul>
+        <ul className={css.ulNavi}>
           <li>
             <NavLink to="/register">Registration</NavLink>
           </li>

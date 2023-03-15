@@ -8,7 +8,7 @@ import { selectFilteredContacts } from 'redux/contactsSlice/contactsSelector';
 const ContactsList = () => {
 
   return (
-    <ul className={styles.ul}>
+    <ul className={styles.ulContactList}>
       {useSelector(selectFilteredContacts).map(({ id, name, number }) => {
         return (
           <ItemContactsList
