@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signupOp } from 'redux/auth/authOperations';
+import { signup } from 'redux/auth/authOperations';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -34,8 +34,7 @@ export const RegisterPage = () => {
     const newUser = {
       name, email, password
     };
-    console.log(newUser)
-    dispatch(signupOp(newUser));
+    dispatch(signup( newUser ));
     navigate('/contacts');
   }
 

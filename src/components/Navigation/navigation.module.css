@@ -4,9 +4,3 @@
     justify-content: space-between;
 }
 
-.ulNavi {
-    margin: 0;
-    list-style: none;
-    display: inline-flex;
-    gap: 10px;
-}

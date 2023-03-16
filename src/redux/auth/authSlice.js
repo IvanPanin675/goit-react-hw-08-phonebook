@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signupOp } from './authOperations';
+import { signup, login, logout } from './authOperations';
 
 const initialState = {
   user: {},
@@ -13,20 +13,51 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
-    builder.addCase(signupOp.pending, state => {
-      state.loading = true;
-      state.error = null;
-    })
-      .addCase(signupOp.fulfilled,(state, { payload: {user,token} }) => {
-      state.loading = false;
-          state.user = user;
-          state.token = token;
-          state.isLogin = true;
+    builder
+      .addCase(signup.pending, state => {
+        state.loading = true;
+        state.error = null;
       })
-        .addCase(signupOp.rejected, (state, { payload }) => {
-            state.loading = false;
-            state.error = payload;
+      .addCase(signup.fulfilled, (state, { payload }) => {
+        const { user, token } = payload;
+        state.loading = false;
+        state.user = user;
+        state.token = token;
+        state.isLogin = true;
       })
+      .addCase(signup.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(login.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(login.fulfilled, (state, { payload }) => {
+        const { user, token } = payload;
+        state.user = user;
+        state.token = token;
+        state.loading = false;
+        state.isLogin = true;
+      })
+      .addCase(login.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(logout.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, state => {
+        state.user = {};
+        state.token = "";
+        state.isLogin = false;
+        state.loading = false;
+      })
+      .addCase(logout.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      });
   },
 });
 

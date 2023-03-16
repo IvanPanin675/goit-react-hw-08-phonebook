@@ -1,7 +1,7 @@
 import { useState } from 'react';
-
-
-
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/authOperations';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -20,10 +20,22 @@ export const LoginPage = () => {
     }
   };
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const oldUser = {
+      email,
+      password,
+    };
+    dispatch(login(oldUser));
+    navigate('/contacts');
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
-        {' '}
         User email:
         <input
           onChange={onHandleChange}
@@ -35,7 +47,6 @@ export const LoginPage = () => {
         />
       </label>
       <label>
-        {' '}
         Password:
         <input
           onChange={onHandleChange}
