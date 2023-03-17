@@ -29,3 +29,5 @@ export const logout = async token => {
   setToken();
   return data;
 };
+
+export default authInstance;

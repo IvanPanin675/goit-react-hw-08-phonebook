@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/auth/authOperations';
 import { useNavigate } from 'react-router-dom';
+import { isUserLogin } from 'redux/auth/authSelector';
 
 
 
@@ -9,6 +10,12 @@ export const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+  
+  if (isUserLogin) {
+    navigate('/contacts');
+  }
 
   const onHandleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -27,7 +34,7 @@ export const RegisterPage = () => {
   };
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -35,7 +42,6 @@ export const RegisterPage = () => {
       name, email, password
     };
     dispatch(signup( newUser ));
-    navigate('/contacts');
   }
 
   return (
