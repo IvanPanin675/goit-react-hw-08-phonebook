@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/auth/authOperations';
-import { useNavigate } from 'react-router-dom';
 import css from "../components/FormAddContact/Form.module.css"
 
 
@@ -10,8 +9,6 @@ export const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const navigate = useNavigate();
   
   const onHandleChange = ({ target: { name, value } }) => {
     switch (name) {

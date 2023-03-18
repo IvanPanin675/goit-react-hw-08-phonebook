@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ItemContactsList from './ItemContactsList/ItemContactsList';
 import styles from './ContactList.module.css';
 
