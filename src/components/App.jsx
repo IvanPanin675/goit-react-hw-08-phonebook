@@ -20,7 +20,7 @@ export function App() {
   }, [dispatch]);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/goit-react-hw-08-phonebook'>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route element={<PrivateRoute />}>

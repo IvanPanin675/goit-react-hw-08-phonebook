@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/authOperations';
-// import css from "../components/FormAddContact/Form.module.css"
+import css from "../components/FormAddContact/Form.module.css"
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -32,7 +32,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit} className={css.form}>
       <label>
         User email:
         <input
