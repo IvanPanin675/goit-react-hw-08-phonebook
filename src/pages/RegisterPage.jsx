@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/auth/authOperations';
-import css from "../components/FormAddContact/Form.module.css"
+// import css from "../components/FormAddContact/Form.module.css"
 
 
 
@@ -39,7 +39,7 @@ export const RegisterPage = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={css.form}>
+    <form onSubmit={handleSubmit} >
       <label>
         {' '}
         User name:
