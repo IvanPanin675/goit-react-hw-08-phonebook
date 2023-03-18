@@ -6,10 +6,10 @@ export const NavLogin = () => {
   return (
         <ul className={css.ulNavi}>
           <li>
-            <NavLink to="/register">Registration</NavLink>
+            <NavLink className={css.links} to="/register">Registration</NavLink>
           </li>
           <li>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink className={css.links} to="/login">Login</NavLink>
           </li>
         </ul>
   );

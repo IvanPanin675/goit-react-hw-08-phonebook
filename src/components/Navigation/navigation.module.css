@@ -1,6 +1,22 @@
 .navi {
-    display: flex;
-    padding: 25px;
-    justify-content: space-between;
+  display: flex;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
 }
 
+.contacts {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: inherit;
+  margin-right: 20px;
+}
+
+.contacts:global(.active) {
+  pointer-events: none;
+  padding: 9px;
+  border: 1px solid orange;
+  background-color: orange;
+  color: white;
+}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/auth/authOperations';
 import { useNavigate } from 'react-router-dom';
-import { isUserLogin } from 'redux/auth/authSelector';
+import css from "../components/FormAddContact/Form.module.css"
 
 
 
@@ -13,10 +13,6 @@ export const RegisterPage = () => {
 
   const navigate = useNavigate();
   
-  if (isUserLogin) {
-    navigate('/contacts');
-  }
-
   const onHandleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
@@ -41,11 +37,12 @@ export const RegisterPage = () => {
     const newUser = {
       name, email, password
     };
-    dispatch(signup( newUser ));
+    dispatch(signup(newUser));
+      // navigate('/contacts');
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={css.form}>
       <label>
         {' '}
         User name:
@@ -82,7 +79,7 @@ export const RegisterPage = () => {
           required
         />
       </label>
-      <button>Register</button>
+      <button>Registration</button>
     </form>
   );
 };
